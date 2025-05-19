@@ -1,12 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name ="viewport" content ="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Log</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h5>user log : {{r}}</h5>
+        <h3>User Log</h3>
+
+        <!-- Display Data in a Styled Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in r %}
+                <tr>
+                    <td>{{ user[0] if user[0] else 'N/A' }}</td>
+                    <td>{{ user[1] if user[1] else 'N/A' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Main Button -->
         <form action="/main" method="post">        
-            <input type="submit" value="Main">
+            <input type="submit" value="Main" class="btn">
         </form>
     </div>
 </body>
+</html>

@@ -56,13 +56,14 @@ def user_log():
     conn = sqlite3.connect('user.db')
     cursor = conn.cursor()
     cursor.execute("select * from users")
-    r = ""
-    for row in cursor:
-        print(row)
-        r = r+str(row)
+    
+    # Fetch all rows as a list of tuples
+    data = cursor.fetchall()
     cursor.close()
     conn.close()
-    return(render_template("user_log.html", r=r)) 
+    
+    # Pass the structured data to the template
+    return render_template('user_log.html', r=data)
 
 @app.route("/delete_log", methods = ["GET","POST"]) 
 def delete_log():
