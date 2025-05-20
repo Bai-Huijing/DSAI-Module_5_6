@@ -82,5 +82,6 @@ def logout():
     first_time = 1
     return(render_template("index1.html")) 
 
+
 if __name__=="__main__":
     app.run()
