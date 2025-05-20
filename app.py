@@ -27,17 +27,18 @@ def index():
 @app.route("/main", methods = ["GET","POST"]) 
 def main():
     global first_time
-    if first_time ==1:
+    if first_time==1:
         q = request.form.get("q")
         print(q)
         t = datetime.datetime.now()
-        conn =sqlite3.connect('user.db')
-        cursor =conn.cursor()
-        cursor.execute("insert into users(name, timestamp) values(?,?)",(q, t))
+        conn = sqlite3.connect('user.db')
+        c = conn.cursor()
+        c.execute("insert into users(name,timestamp) values(?,?)",(q,t))
         conn.commit()
-        cursor.close()
+        c.close()
         conn.close()
-    return(render_template("main.html")) 
+        first_time=0
+    return(render_template("main.html"))
 
 #Gemini
 @app.route("/gemini", methods = ["GET","POST"]) 
@@ -74,6 +75,12 @@ def delete_log():
     cursor.close()
     conn.close()
     return(render_template("delete_log.html")) 
+
+@app.route("/logout", methods = ["GET","POST"]) 
+def logout():
+    global first_time 
+    first_time = 1
+    return(render_template("index1.html")) 
 
 if __name__=="__main__":
     app.run()
