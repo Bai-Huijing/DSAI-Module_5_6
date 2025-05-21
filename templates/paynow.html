@@ -12,9 +12,12 @@
         <input type="number" id="amount" placeholder="Amount">
         <button class="btn" onclick="transfer()">Transfer Money</button>
         <button class="btn" onclick="transaction()">View Transaction</button>
-        <p id="view_payer"></p>
-        <p id="view_payee"></p>
-        <p id="view_amount"></p>
+
+        <div class="transaction-box">
+            <p id="view_payer"></p>
+            <p id="view_payee"></p>
+            <p id="view_amount"></p>
+        </div>
         <form action="/main" method="post">
             <input type="submit" value="Main">
         </form>
