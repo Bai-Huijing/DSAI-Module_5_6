@@ -1,5 +1,5 @@
 <head>
-    <meta name = "viewport" content = "width=device-width,initial_scale=1.0"> 
+    <meta name = "viewport" content = "width=device-width,initial-scale=1.0"> 
     <link rel = "stylesheet" href = "{{url_for('static', filename ='style.css')}}"> 
 
 </head>
@@ -9,7 +9,7 @@
         <h2>Web Application</h2>
         <form action="/main" method="post">
             <p> Please enter your username: </p>
-            <input type="text" name="q">
+            <input type="text" name="q" required>
             <input type="submit" value="Enter">
         </form>
     </div>

@@ -52,6 +52,11 @@ def gemini_reply():
     r = model.generate_content(q)
     return(render_template("gemini_reply3.html",r=r.text)) 
 
+@app.route("/paynow", methods = ["GET","POST"])
+def paynow():
+    return(render_template("paynow.html")) 
+
+
 @app.route("/user_log", methods = ["GET","POST"]) 
 def user_log():
     conn = sqlite3.connect('user.db')

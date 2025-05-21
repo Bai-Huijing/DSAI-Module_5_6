@@ -1,5 +1,5 @@
 <head>
-    <meta name = "viewport" content = "width=device-width,initial_scale=1.0"> 
+    <meta name = "viewport" content = "width=device-width,initial-scale=1.0"> 
     <link rel = "stylesheet" href = "{{url_for('static', filename ='style.css')}}"> 
 
 </head>
@@ -9,6 +9,15 @@
         <h2>Web Application</h2>
         <form action="/gemini" method="post">
             <input type="submit" value="Chatbot by Gemini">
+        </form>
+        <form action="/paynow" method="post">
+            <input type="submit" value="Transfer Money">
+        </form>
+        <form action="/telegram" method="post">
+            <input type="submit" value="Start Telegram">
+        </form>
+        <form action="/prediction" method="post">
+            <input type="submit" value="Prediction">
         </form>
         <form action="/user_log" method="post">
             <input type="submit" value="User Log">
