@@ -2,6 +2,7 @@
 
 from flask import Flask,request,render_template
 import google.generativeai as genai
+from google import genai
 import os
 import sqlite3
 import datetime
@@ -10,6 +11,9 @@ import requests
 #Configure Gemini
 gemini_api_key = os.getenv('GEMINI_API_KEY')
 genai.configure(api_key = gemini_api_key)
+genmini_client = genai.Client(api_key=gemini_api_key)
+genmini_model = "gemini-2.0-flash
+
 
 #configure Gemini Telegram
 gemini_telegram_token = os.getenv('GEMINI_TELEGRAM_TOKEN')
