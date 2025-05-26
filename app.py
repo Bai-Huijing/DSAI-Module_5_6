@@ -1,17 +1,17 @@
 #gemini
 
 from flask import Flask,request,render_template
-from dotenv import load_dotenv  
 import google.generativeai as genai
 import os
 import sqlite3
 import datetime
 
 #Configure Gemini
-load_dotenv()
-gemini_api_key = os.getenv("gemini_api_key")
+gemini_api_key = os.getenv('GEMINI_API_KEY')
 genai.configure(api_key = gemini_api_key)
 
+#configure Gemini Telegram
+gemini_telegram_token = os.getenv('GEMINI_TELEGRAM_TOKEN')
 
 #Configure Gemini Model
 model = genai.GenerativeModel("gemini-2.0-flash")
