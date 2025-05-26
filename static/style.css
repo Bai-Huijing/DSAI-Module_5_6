@@ -1,3 +1,4 @@
+/* === Base Styles === */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
@@ -9,26 +10,46 @@ body {
     min-height: 100vh;
 }
 
+/* === Container Styles === */
 .container {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
     width: 100%;
+    max-width: 400px;
     text-align: center;
+    margin: 0 auto;
 }
 
-.container-wide {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.container.wide {
     max-width: 1000px;
-    width: 100%;
     margin: 20px auto;
 }
 
+@media (min-width: 768px) {
+    .container.reply {
+        max-width: 600px;
+    }
+}
+
+/* === Typography === */
+h2, h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #007bff;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    text-align: left;
+}
+
+/* === Image === */
 .image-class {
     max-width: 100%;
     height: auto;
@@ -37,56 +58,60 @@ body {
     display: block;
 }
 
-h2, h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
+/* === Forms and Inputs === */
 form {
     margin: 15px 0;
 }
 
-input[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+input,
+input[type="submit"],
+button {
     width: 100%;
     max-width: 300px;
-}
-
-input, button {
-    width: 100%;
     padding: 10px;
     margin-top: 10px;
     border-radius: 4px;
     border: 1px solid #ddd;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
+input[type="submit"],
 button {
-    background-color: #007bff;
+    background-color: #5036a4;
     color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+input[type="submit"]:hover,
 button:hover {
-    background-color: #0056b3;
+    background-color: #3c2880;
 }
 
-p {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #007bff;
+/* === Special Buttons === */
+.main-btn {
+    display: block;
+    width: 200px;
+    margin: 30px auto 0;
+    padding: 12px;
+    background-color: #5036a4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
-/* Table Styles */
+.main-btn:hover {
+    background-color: #3c2880;
+}
+
+/* === Table === */
 table {
     width: 80%;
     margin: 20px auto;
@@ -123,32 +148,9 @@ th {
     padding: 20px;
 }
 
-.main-btn {
-    display: block;
-    width: 200px;
-    margin: 30px auto 0;
-    padding: 12px;
-    background-color: #5036a4;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.main-btn:hover {
-    background-color: #3c2880;
-}
-
+/* === Responsive === */
 @media (max-width: 768px) {
     .container {
-        padding: 20px;
-    }
-
-    .container-wide {
         padding: 20px;
     }
 
@@ -156,7 +158,8 @@ th {
         font-size: 20px;
     }
 
-    input, button {
+    input,
+    button {
         font-size: 14px;
     }
 
@@ -174,16 +177,17 @@ th {
     }
 }
 
+/* === Transaction Box === */
 .transaction-box {
-    background-color: transparent; /* or use a light background if preferred */
+    background-color: transparent;
     padding: 10px 0;
     max-width: 100%;
     margin-top: 20px;
-    text-align: left; /* Align text to the left */
+    text-align: left;
 }
 
 .transaction-item {
-    font-size: 14px; /* Reduced font size */
+    font-size: 14px;
     color: #333;
     margin: 6px 0;
     word-wrap: break-word;

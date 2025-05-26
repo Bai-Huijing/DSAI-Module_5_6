@@ -6,9 +6,10 @@
 
 <body>
     <div class="container">
-        <h2>Chatbot by Gemini</h2>
-        <form action="/gemini_reply" method="post">
-            <input type="text" name="q">
+        <h2>Predict DBS share price</h2>
+        <form action="/prediction_reply" method="post">
+            <p>Please enter USD to SGD exchange rate</p>
+            <input type="number" name="q" step="0.01">
             <input type="submit" value="Enter">
         </form>
             <form action="/" method="post">
