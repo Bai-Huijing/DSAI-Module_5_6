@@ -8,13 +8,15 @@ import sqlite3
 import datetime
 import requests
 
-#Configure Gemini
 gemini_api_key = os.getenv('GEMINI_API_KEY')
-genai1.configure(api_key = gemini_api_key)
+
+#Configure Gemini model for Telegram
 gemini_client = genai.Client(api_key=gemini_api_key)
-#Configure Gemini Model
-gemini_model = genai.GenerativeModel('gemini-2.0-flash')
-model = genai1.GenerativeModel('gemini-2.0-flash')
+gemini_model ="gemini-2.0-flash"
+
+#Configure Gemini Model webapp
+genai1.configure(api_key = gemini_api_key)
+model = genai1.GenerativeModel("gemini-2.0-flash")
 
 #configure Gemini Telegram
 gemini_telegram_token = os.getenv('GEMINI_TELEGRAM_TOKEN')
