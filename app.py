@@ -12,14 +12,13 @@ import requests
 gemini_api_key = os.getenv('GEMINI_API_KEY')
 genai.configure(api_key = gemini_api_key)
 gemini_client = genai.Client(api_key=gemini_api_key)
+#Configure Gemini Model
 gemini_model = "gemini-2.0-flash"
 
 
 #configure Gemini Telegram
 gemini_telegram_token = os.getenv('GEMINI_TELEGRAM_TOKEN')
 
-#Configure Gemini Model
-model = genai.GenerativeModel("gemini-2.0-flash")
 
 #Configure Flask - contract in the program to point to you as creator
 app = Flask(__name__)
@@ -57,7 +56,7 @@ def gemini():
 def gemini_reply():
     q = request.form.get("q")
     print(q)
-    r = model.generate_content(q)
+    r = gemini_model.generate_content(q)
     return(render_template("gemini_reply3.html",r=r.text))
 
 @app.route("/paynow", methods = ["GET","POST"])
