@@ -13,7 +13,7 @@ gemini_api_key = os.getenv('GEMINI_API_KEY')
 genai.configure(api_key = gemini_api_key)
 gemini_client = genai.Client(api_key=gemini_api_key)
 #Configure Gemini Model
-gemini_model = "gemini-2.0-flash"
+gemini_model = genai.GenerativeModel('gemini-2.0-flash')
 
 
 #configure Gemini Telegram
