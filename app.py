@@ -1,7 +1,8 @@
 #gemini
 
 from flask import Flask,request,render_template
-import google.generativeai as genai
+from google import genai
+import google.generativeai as genai1
 import os
 import sqlite3
 import datetime
@@ -9,11 +10,11 @@ import requests
 
 #Configure Gemini
 gemini_api_key = os.getenv('GEMINI_API_KEY')
-genai.configure(api_key = gemini_api_key)
+genai1.configure(api_key = gemini_api_key)
 gemini_client = genai.Client(api_key=gemini_api_key)
 #Configure Gemini Model
 gemini_model = genai.GenerativeModel('gemini-2.0-flash')
-
+model = genai1.GenerativeModel('gemini-2.0-flash')
 
 #configure Gemini Telegram
 gemini_telegram_token = os.getenv('GEMINI_TELEGRAM_TOKEN')
@@ -55,7 +56,7 @@ def gemini():
 def gemini_reply():
     q = request.form.get("q")
     print(q)
-    r = gemini_model.generate_content(q)
+    r = model.generate_content(q)
     return(render_template("gemini_reply3.html",r=r.text))
 
 @app.route("/paynow", methods = ["GET","POST"])
