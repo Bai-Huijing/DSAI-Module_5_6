@@ -11,8 +11,8 @@ import requests
 #Configure Gemini
 gemini_api_key = os.getenv('GEMINI_API_KEY')
 genai.configure(api_key = gemini_api_key)
-genmini_client = genai.Client(api_key=gemini_api_key)
-genmini_model = "gemini-2.0-flash
+gemini_client = genai.Client(api_key=gemini_api_key)
+gemini_model = "gemini-2.0-flash"
 
 
 #configure Gemini Telegram
@@ -109,8 +109,8 @@ def telegram():
             # Process the message and generate a response
             system_prompt = "You are a financial expert.  Answer ONLY questions related to finance, economics, investing, and financial markets. If the question is not related to finance, state that you cannot answer it."
             prompt = f"{system_prompt}\n\nUser Query: {text}"
-            r = genmini_client.models.generate_content(
-                model=genmini_model,
+            r = gemini_client.models.generate_content(
+                model=gemini_model,
                 contents=prompt
             )
             r_text = r.text
